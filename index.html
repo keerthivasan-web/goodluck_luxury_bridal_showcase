@@ -1,0 +1,623 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;family=Libre+Caslon+Text&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#221b0b",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dbdbcd",
+                    "on-tertiary-container": "#fffbff",
+                    "outline": "#857374",
+                    "on-surface-variant": "#524345",
+                    "surface-container-highest": "#e3e3d5",
+                    "secondary-fixed-dim": "#d3c5ad",
+                    "on-background": "#1b1c14",
+                    "inverse-on-surface": "#f1f2e3",
+                    "tertiary-fixed": "#fbdbde",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#3a0915",
+                    "primary": "#8a4853",
+                    "tertiary": "#6e5659",
+                    "on-primary-container": "#fffbff",
+                    "outline-variant": "#d7c1c3",
+                    "on-secondary-container": "#6c614e",
+                    "on-primary-fixed-variant": "#70343e",
+                    "primary-fixed": "#ffd9dd",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#281719",
+                    "surface-container-high": "#e9e9db",
+                    "tertiary-fixed-dim": "#debfc2",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#f0e0c8",
+                    "surface-tint": "#8c4b55",
+                    "inverse-surface": "#2f3128",
+                    "primary-fixed-dim": "#ffb2bc",
+                    "background": "#fafaeb",
+                    "surface-container": "#efefe0",
+                    "tertiary-container": "#886e71",
+                    "secondary": "#685d4a",
+                    "secondary-container": "#eddec5",
+                    "primary-container": "#a6606b",
+                    "on-secondary-fixed-variant": "#4f4533",
+                    "inverse-primary": "#ffb2bc",
+                    "surface-bright": "#fafaeb",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f4f5e6",
+                    "on-tertiary-fixed-variant": "#574144",
+                    "surface": "#fafaeb",
+                    "surface-variant": "#e3e3d5",
+                    "on-surface": "#1b1c14"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "stack-lg": "32px",
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "label-sm": ["Poppins"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "subheading-lg": ["Libre Caslon Text"],
+                    "body-rt": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "subheading-lg": ["24px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-rt": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    }catch(_e){}</script><meta charset="utf-8">
+<style>
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.12);
+      }
+    }
+
+    .ken-burns {
+      animation: kenBurns 20s ease-in-out infinite alternate;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(215, 193, 195, 0.4);
+    }
+
+    /* Button shimmer effect */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.25) 45%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.25) 55%,
+        rgba(255, 255, 255, 0) 70%
+      );
+      transform: rotate(-45deg);
+      transition: none;
+      animation: shimmerEffect 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerEffect {
+      0% {
+        left: -120%;
+        top: -120%;
+      }
+      30%, 100% {
+        left: 120%;
+        top: 120%;
+      }
+    }
+
+    /* Smooth fade-up elements */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating particles animations */
+    @keyframes floatParticle {
+      0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      50% {
+        transform: translateY(-15px) translateX(10px) scale(1.05);
+      }
+    }
+
+    .floating-particle {
+      animation: floatParticle 8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* Testimonials scroll track */
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scrollTestimonials 35s linear infinite;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollTestimonials {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .text-glow {
+      text-shadow: 0 4px 20px rgba(138, 72, 83, 0.15);
+    }
+</style>
+</head><body class="bg-background text-on-background font-body-rt overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 transition-all duration-300 shadow-sm">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4">
+<div class="font-headline-md text-headline-md tracking-tighter text-primary">GOODLUCK</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a href="#about" class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-primary transition-colors duration-300">Portfolio</a>
+<a href="#services" class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-primary transition-colors duration-300">Services</a>
+<a href="#gallery" class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-primary transition-colors duration-300">About</a>
+<a href="#testimonials" class="text-on-surface-variant font-label-sm uppercase tracking-widest hover:text-primary transition-colors duration-300">Reviews</a>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-sm rounded-full shimmer hover:scale-95 transition-transform">
+                Book Now
+            </button>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<!-- Ken Burns Background -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center ken-burns" data-alt="A cinematic, high-end bridal makeup studio with warm amber lighting, luxury cosmetic displays, and a elegant vanity mirror. The scene is shot with a shallow depth of field, highlighting soft textures of lace and silk in the background, creating a professional and exclusive atmosphere. A makeup artist's kit is neatly arranged, suggesting meticulous artistry." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDjE83fgcYs8cw03nkZz__fJT_Vjew68gttWUaBds18id3XmMwp4a11LgOG3kIPJ93XKhz-hgOOry8wd6wMV63HY2h35UDaRVzaPSakj0fpiYscg0pNq6QMIkrvlbIPLwP1jWDKFgWe8lo8nSjvTuisx3d95BvKkSWzRo_d_z1nWVc1PxBGPo3txwd0k9KFgIvZALZiNEvpRgAsGscSVEdZ5lorPsfIa4aSZUYgJYFMe1SvGUNEHqJu2p82RDf1cSPDP1rm7hreSKw&quot;);">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-background/60 to-background"></div>
+</div>
+<!-- Floating Particles -->
+<div class="absolute inset-0 pointer-events-none z-10" id="parallax-container">
+<div class="absolute top-1/4 left-1/4 w-4 h-4 bg-primary/20 rounded-full blur-xl floating-particle" style="animation-delay: 0s"></div>
+<div class="absolute top-2/3 right-1/4 w-8 h-8 bg-tertiary/20 rounded-full blur-2xl floating-particle" style="animation-delay: 2s"></div>
+<div class="absolute bottom-1/4 left-1/2 w-6 h-6 bg-secondary/20 rounded-full blur-xl floating-particle" style="animation-delay: 4s"></div>
+<span class="material-symbols-outlined absolute top-1/3 right-1/3 text-primary/30 text-4xl floating-particle" style="animation-delay: 1s">flare</span>
+<span class="material-symbols-outlined absolute bottom-1/3 left-1/4 text-primary/20 text-5xl floating-particle" style="animation-delay: 3s">spa</span>
+</div>
+<!-- Hero Content -->
+<div class="relative z-20 text-center px-margin-mobile max-w-4xl">
+<div class="flex items-center justify-center gap-1 mb-stack-md fade-up">
+<span class="text-primary font-bold">4.9</span>
+<div class="flex text-[#FFD700]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-on-surface-variant text-label-sm">(228+ Google Reviews)</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-md fade-up text-glow">
+                GOODLUCK Makeup &amp; Mehndi Studio
+            </h1>
+<p class="font-subheading-lg text-subheading-lg text-on-surface-variant mb-stack-lg fade-up" style="transition-delay: 0.2s;">Luxury Bridal Makeup &amp; Professional Mehndi Artist in Gobichettipalayam, Erode</p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center items-center fade-up" style="transition-delay: 0.4s">
+<button class="px-margin-desktop py-4 bg-primary text-on-primary font-label-sm uppercase tracking-widest rounded-full shimmer hover:shadow-lg transition-all w-full md:w-auto">
+                    Book Appointment
+                </button>
+<button class="px-margin-desktop py-4 border border-primary text-primary font-label-sm uppercase tracking-widest rounded-full hover:bg-primary hover:text-on-primary transition-all w-full md:w-auto">
+                    Explore Services
+                </button>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="about">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-section-gap items-center">
+<div class="relative fade-up">
+<div class="absolute -top-10 -left-10 w-full h-full border border-primary-fixed-dim/50 -z-10"></div>
+<img class="w-full aspect-[4/5] object-cover rounded shadow-2xl" data-alt="A professional portrait of Priya, a skilled South Indian makeup artist, in her elegant studio. She is smiling warmly, dressed in sophisticated professional attire. The background features high-end makeup palettes, professional ring lights, and delicate floral arrangements, reflecting her expertise and luxury service style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgzZMA1n10bkSq5K0huE1CDoyH1ntXfZeoO2knI20pqIXjfKOaTg7g5LPQp5Ym7xeR6FqnhRRbRorvEWT699srdWiA0yCUlQetcmfK-bfp082qiU3vaU4gFL6vrNPtWgRYYzc7fzGNPuUN1GLytwt7yPsinz1ppofljcQnnm2jHezJ4tKbazxH1MoVEG62T9uyFwkARhnkVlMXyHnD7kZucu8xpQJhH9Mtdu1JBeSJbIex3ZaZgEG12zpnFoT6AnX6MLt3onSrWyE">
+<div class="absolute bottom-6 right-6 glass p-6 max-w-[200px]">
+<p class="font-headline-md text-headline-md text-primary leading-tight">Priya</p>
+<p class="font-label-sm text-on-surface-variant">Founder &amp; Lead Artist</p>
+</div>
+</div>
+<div class="fade-up" style="transition-delay: 0.3s">
+<p class="text-primary font-label-sm uppercase tracking-[0.3em] mb-stack-md">Mastering the Art of Beauty</p>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-lg">Professional Makeup Artist &amp; Mehndi Designer</h2>
+<p class="font-body-rt text-on-surface-variant mb-stack-lg leading-relaxed">With years of experience in creating breathtaking bridal transformations, Priya has become a leading specialist in budget-friendly luxury makeup in Gobichettipalayam, Erode.</p>
+<div class="space-y-stack-md mb-stack-lg">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="font-body-rt text-on-surface-variant">With years of experience in creating breathtaking bridal transformations, Priya has become a leading specialist in budget-friendly luxury makeup in Gobichettipalayam, Erode.</p>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="font-body-rt text-on-surface-variant">With years of experience in creating breathtaking bridal transformations, Priya has become a leading specialist in budget-friendly luxury makeup in Gobichettipalayam, Erode.</p>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="font-body-rt text-on-surface-variant">With years of experience in creating breathtaking bridal transformations, Priya has become a leading specialist in budget-friendly luxury makeup in Gobichettipalayam, Erode.</p>
+</div>
+</div>
+<div class="flex items-center gap-8 border-t border-outline-variant/30 pt-stack-lg">
+<div>
+<p class="text-3xl font-bold text-primary">5+</p>
+<p class="text-label-sm uppercase text-on-surface-variant">Years Exp.</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-primary">1000+</p>
+<p class="text-label-sm uppercase text-on-surface-variant">Henna Designs</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-section-gap bg-surface-container-lowest" id="services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-section-gap fade-up">
+<h2 class="font-headline-md text-headline-md text-on-surface">Curated Artistry Services</h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-stack-md"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Service Cards -->
+<div class="glass p-stack-lg flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 fade-up">
+<span class="material-symbols-outlined text-5xl text-primary mb-stack-md">face_5</span>
+<h3 class="font-headline-md text-2xl text-on-surface mb-stack-md">Bridal Makeup</h3>
+<p class="font-body-rt text-on-surface-variant mb-stack-lg">Flawless, long-lasting luxury HD makeup tailored to your unique skin tone and bridal style.</p>
+<ul class="text-sm space-y-2 text-on-surface-variant mb-8">
+<li class="">• Trial Sessions Available</li>
+<li class="">• International Premium Products</li>
+<li class="">• Full Styling Assistance</li>
+</ul>
+</div>
+<div class="glass p-stack-lg flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 fade-up" style="transition-delay: 0.1s">
+<span class="material-symbols-outlined text-5xl text-primary mb-stack-md">front_hand</span>
+<h3 class="font-headline-md text-2xl text-on-surface mb-stack-md">Bridal Mehndi</h3>
+<p class="font-body-rt text-on-surface-variant mb-stack-lg">Intricate, dark-staining traditional and Arabic patterns that tell your unique love story.</p>
+<ul class="text-sm space-y-2 text-on-surface-variant mb-8">
+<li class="">• Natural Organic Henna</li>
+<li class="">• Custom Figurative Designs</li>
+<li class="">• Sangeet &amp; Guest Packages</li>
+</ul>
+</div>
+<div class="glass p-stack-lg flex flex-col items-center text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 fade-up" style="transition-delay: 0.2s">
+<span class="material-symbols-outlined text-5xl text-primary mb-stack-md">brush</span>
+<h3 class="font-headline-md text-2xl text-on-surface mb-stack-md">Hair Styling</h3>
+<p class="font-body-rt text-on-surface-variant mb-stack-lg">From traditional braids with floral arrangements to modern elegant updos.</p>
+<ul class="text-sm space-y-2 text-on-surface-variant mb-8">
+<li class="">• Extension Styling</li>
+<li class="">• Flower Setting</li>
+<li class="">• Accessory Consultation</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics Section -->
+<section class="py-section-gap bg-primary text-on-primary overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="fade-up">
+<p class="text-5xl font-bold mb-2">228+</p>
+<p class="font-label-sm uppercase tracking-widest opacity-80">Happy Brides</p>
+</div>
+<div class="fade-up" style="transition-delay: 0.1s">
+<p class="text-5xl font-bold mb-2">4.9</p>
+<p class="font-label-sm uppercase tracking-widest opacity-80">Google Rating</p>
+</div>
+<div class="fade-up" style="transition-delay: 0.2s">
+<p class="text-5xl font-bold mb-2">100%</p>
+<p class="font-label-sm uppercase tracking-widest opacity-80">Satisfaction</p>
+</div>
+<div class="fade-up" style="transition-delay: 0.3s">
+<p class="text-5xl font-bold mb-2">1k+</p>
+<p class="font-label-sm uppercase tracking-widest opacity-80">Designs Created</p>
+</div>
+</div>
+</section>
+<!-- Gallery Masonry -->
+<section class="py-section-gap" id="gallery">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-section-gap fade-up">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Artistry Showcase</h2>
+<p class="text-on-surface-variant font-body-rt">A glimpse into our world of bridal elegance.</p>
+</div>
+<button class="hidden md:block px-8 py-3 border border-outline text-on-surface-variant rounded-full hover:bg-primary hover:text-on-primary transition-all">View All Work</button>
+</div>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-gutter space-y-gutter">
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="Close-up shot of a stunning Indian bride with flawless HD makeup, emphasizing a sophisticated smokey eye look with gold highlights and a bold matte lip. Her jewelry is ornate gold with rubies, and the lighting is soft and cinematic, typical of a professional luxury bridal studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKARiPn6kXx-4H8-3pVoy8lW53wlgVMRnTBWfDloxaEyn-2UL1D4HCGfKSCi4bqIarj9Cq6p8cLpCzPaLI3uS7ui_uaJiD_jaa7iEgjvREIv0z1qTKIy_UzHPXmqe9BTB3fzXXNkLKg3lpOT7XT0tpwThAUWgq8bd2noFDmlK6Xb2fjkmVwhe-Vqw_MKRpahFNvi-uP0aMJ_Yrc0LKSZTQW_4gpi_UYxgsHv2_Ti9sKfn13X2pgPgYE2cfaWn9V1AO4rxywfBei2s">
+</div>
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="Detailed macro shot of intricate bridal mehndi patterns on a bride's hands and arms. The henna is dark and rich, featuring delicate floral and paisley motifs. The background is a soft-focus wedding saree in deep crimson, highlighting the artistry and tradition of the mehndi design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBNeWIgoUMavW_ukLU2GhxC-ELiRueEJrt85g0rrlKR-NcLDfId9LhvkZ7QRBMiPI6bixej_J5LgUFWOcSKYaEiYxvzPvOvWEoTYsDDNgK34NMkW_Jra9aHvAtPH5BODzjyKMTOwtiEXk6Ho_IEay5kFAPnwYA6KFrWMo-vgPVuUUb9tStEGLBrKhr0jy1Skc6ndCOeq0zMe4vHI9sqdusIVvd1lzUpdvl5GMGcmlvvMmQpoAweklJXf1pgMTfLH9_BFwmJEWy6b4">
+</div>
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="A portrait of a reception bride featuring a contemporary makeup look with glowing dewy skin, soft pastel eye shadows, and an elegant side-swept hairstyle adorned with fresh white flowers. She is wearing a modern silver and lavender lehenga, set against a blurred floral wedding decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx4w46eGwNm4jFaWM1X2gTkmX7CT0jPzoN5_VhyaCrmkDLm0LgELCGbOlxfSkwBEOmu5wEQPTiMlrh1zTIinLwxWa4A3e_grEr5m6gXH3EFUWCP6RUNA0lvn6vrwdipzstvbyJZGOhcbjv9Jc-vhsP8Jn8RiWYSc0fY54tAULJOGNu99bmc1sQ8FIwDv7QyqBnFhPfC9rv7VqLasyq8B2j5OpkxTE9gOHBJNCALy3Ewwyp0-HyCW2K9ymNqJ2PnCZjBK1XyLp671E">
+</div>
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="Elegant hair styling for a South Indian bride featuring a long, traditional braid decorated with intricate jasmine flowers and gold hair accessories called 'Jada Billalu'. The shot is from the back to showcase the meticulous braiding and floral placement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_KAGc3lGrd195miErQYaLHKf2iYCYaWquoN6TcuxMdsuNVmwb2xNqjGlFJwb_s9Dom08ja-p5XPvuFpgVfwdYtgSUi1vRWHggaVI8FeFG63GeKronzcMD9uxw1JzS70XBXwIAYLKyrXOzdRZvg1LElTy4w_lb0C8NaNO0lPJR-LFb9c_hwthNiXyUK6rlUzDkay7fTd4ckkXEbe4a_D4SomdyvmOjNr-vDgrsna2_Zetr_INJBatySBzQdcGymADUcfJt7pBvotM">
+</div>
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="Beautiful Arabic mehndi design on the back of a hand, showing bold strokes and flowing geometric patterns mixed with floral elements. The style is modern and elegant, perfect for engagement or party guests, photographed in natural sunlight to show the crisp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAwUcX6tyaLn98ElVI9dpl5jq7J38QRgJklbTRsv35ayMFmi5uoQYQUzAuOy4HdY34mkq8Lv2eP3cFrWlSoDYvvg2DziMVwmeVEpArLupVoFrYIzb12nJPFex-vC4TlTGwiVflMpVVj6FqlEv0qpNSpqyFtlpX7upW6FBvCdIUk7sy23I-g0Y49Rb9wLiapq9Ij62D-7ZLuc0eIKricZIxa-U6_7j4eFEFe2VUIAKWGdtT1bS3z3BXFnGPmIdk_kHIVHwWg_Kzb4s">
+</div>
+<div class="relative group overflow-hidden fade-up">
+<img class="w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="Cinematic shot of a makeup artist's hand precisely applying eyeliner to a bride. The focus is on the steady hand and the delicate brushwork, with the bride's glowing face partially in view. The warm lighting emphasizes the professional atmosphere of GOODLUCK studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM7O3DPF0XUE6DdLJnVV64Q7lFVG0S2JToiuRsUroOWgb9v74zAkGrjAiJwatQmEpAff88kmcormi3nG57L1A2H_mKsZgyUPIXR-1gFqWN5HnpYmitbwmm6EtlJaZgRt_VZ_qHVO-aebJDme7RMbkT2jc4bc2GmcbX-AHv78qxfwHwFA3xbVpV5lbSjUFwjV_sWFtcrtSLb8JEzArHLB2m5NTw6vqL1WaLNSLIEMBIvIItUg4bOHZv6uwiDWm_lGmjBDnSy3BWLGs">
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us - Bento Grid -->
+<section class="py-section-gap bg-surface-container">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-on-surface text-center mb-section-gap fade-up">Why Brides Trust GOODLUCK</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass p-stack-lg rounded-xl fade-up">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">home</span>
+<h4 class="font-bold mb-2">Home Service</h4>
+<p class="text-sm text-on-surface-variant">We bring luxury to your doorstep for your comfort.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.1s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">diamond</span>
+<h4 class="font-bold mb-2">Premium Products</h4>
+<p class="text-sm text-on-surface-variant">Using only MAC, Huda Beauty, &amp; Estée Lauder.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.2s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">schedule</span>
+<h4 class="font-bold mb-2">Punctuality</h4>
+<p class="text-sm text-on-surface-variant">On-time service guaranteed for your big day.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.3s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">savings</span>
+<h4 class="font-bold mb-2">Budget Friendly</h4>
+<p class="text-sm text-on-surface-variant">Luxury bridal packages that don't break the bank.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.4s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">sanitizer</span>
+<h4 class="font-bold mb-2">Hygiene First</h4>
+<p class="text-sm text-on-surface-variant">Sanitized tools and professional kit maintenance.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.5s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">loyalty</span>
+<h4 class="font-bold mb-2">Custom Designs</h4>
+<p class="text-sm text-on-surface-variant">Tailored looks for every tradition and taste.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.6s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">groups</span>
+<h4 class="font-bold mb-2">Group Packages</h4>
+<p class="text-sm text-on-surface-variant">Special rates for bridesmaids and family.</p>
+</div>
+<div class="glass p-stack-lg rounded-xl fade-up" style="transition-delay: 0.7s">
+<span class="material-symbols-outlined text-primary text-3xl mb-stack-md">thumb_up</span>
+<h4 class="font-bold mb-2">Trial Demos</h4>
+<p class="text-sm text-on-surface-variant">See your look before your actual wedding day.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Slider -->
+<section class="py-section-gap overflow-hidden" id="testimonials">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-stack-lg fade-up">
+<h2 class="font-headline-md text-headline-md text-on-surface">Client Love Stories</h2>
+</div>
+<div class="carousel-track">
+<!-- Repeated cards for seamless loop -->
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"Priya made me look like a dream on my wedding! The makeup lasted all day."</p>
+<p class="font-bold text-sm">- Anjali Sharma</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"The Mehndi design was so intricate and the color was super dark!"</p>
+<p class="font-bold text-sm">- Kavita R.</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"Professional, punctual and very friendly. Best studio in Gobi!"</p>
+<p class="font-bold text-sm">- Sneha M.</p>
+</div>
+<!-- Duplicates -->
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"Absolutely loved my bridal look. Truly worth every penny."</p>
+<p class="font-bold text-sm">- Divya P.</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"HD makeup finish was incredible. No patches, just glow!"</p>
+<p class="font-bold text-sm">- Meera S.</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"Highly recommend for both mehndi and makeup."</p>
+<p class="font-bold text-sm">- Preethi V.</p>
+</div>
+<div class="flex-shrink-0 w-[250px] mx-gutter glass p-6 rounded-lg">
+<div class="flex text-[#FFD700] mb-2"><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span><span class="material-symbols-outlined text-xs">star</span></div>
+<p class="text-xs text-on-surface-variant italic mb-4">"Amazing artistry and attention to detail."</p>
+<p class="font-bold text-sm">- Lakshmi G.</p>
+</div>
+</div>
+</section>
+<!-- Booking CTA -->
+<section class="py-section-gap relative overflow-hidden bg-primary text-on-primary">
+<div class="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" data-alt="A beautiful atmospheric shot of bridal silk fabric and glowing bokeh lights, creating a luxury background texture that feels intimate and celebratory. The rich tones of the fabric complement the elegant theme." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYectTI5gYYvfH4EGF4xWid4r0zyIkI9sVUqRgB1Rxdc-JeSqndW0ato4osNePXphhfuoMAENE0SNj9DaSl_84uWNl4KNdYGOTnRO3qU-eja6me2_inbhUKDcHWocSOo-zcDNrBPcz3hpcy_rQ0YTD_EJz6MNLuNvn2xpgb81GDbk--M7it4RFGzm5US9sr66UgzEQyB5AmytjWkJcHLXpYIW_IPwuqP3oWjEZYrC9lCx0stX3v3iESqh8jhX4NAjeAUAPjLvPVEg')">
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-headline-md text-headline-md mb-stack-md fade-up">Book Your Dream Bridal Look Today</h2>
+<p class="font-subheading-lg mb-stack-lg opacity-90 max-w-2xl mx-auto fade-up" style="transition-delay: 0.1s">Reserve your date for an unforgettable transformation. Limited slots available for upcoming wedding seasons.</p>
+<div class="flex flex-col md:flex-row justify-center gap-gutter fade-up" style="transition-delay: 0.2s">
+<a class="flex items-center justify-center gap-2 px-margin-desktop py-4 bg-on-primary text-primary font-bold rounded-full hover:scale-105 transition-transform shimmer" href="tel:+919788197270">
+<span class="material-symbols-outlined">call</span>
+                    +91 97881 97270
+                </a>
+<a class="flex items-center justify-center gap-2 px-margin-desktop py-4 border border-on-primary text-on-primary font-bold rounded-full hover:bg-on-primary hover:text-primary transition-all" href="https://wa.me/919788197270">
+<span class="material-symbols-outlined">chat</span>
+                    WhatsApp Us
+                </a>
+</div>
+</div>
+</section>
+<!-- Contact-->
+<section class="py-section-gap" id="contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-section-gap">
+<div class="fade-up">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-lg">Visit Our Studio</h2>
+<div class="space-y-stack-lg">
+<div class="flex items-start gap-stack-md">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="font-bold">Address</p>
+<p class="text-on-surface-variant">Near Bus Stand, Gobichettipalayam, Erode, Tamil Nadu 638452</p>
+</div>
+</div>
+<div class="flex items-start gap-stack-md">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div class="">
+<p class="font-bold">Working Hours</p>
+<p class="text-on-surface-variant">Mon - Sun: 09:00 AM - 08:30 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-stack-md">
+<span class="material-symbols-outlined text-primary">mail</span>
+<div>
+<p class="font-bold">Email</p>
+<p class="text-on-surface-variant">hello@goodluckmakeup.com</p>
+</div>
+</div>
+<div class="pt-stack-md flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined">camera_enhance</span></a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+</div>
+<div class="h-[400px] rounded-2xl overflow-hidden shadow-xl fade-up" style="transition-delay: 0.2s">
+<!-- Google Map Placeholder -->
+<div class="w-full h-full bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-location="Gobichettipalayam, Erode" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5FUxdWXt2DD5r5VwQO3BYjEKjbJFpBfVAJ5J_pYNNOBsDoCN7jFzdu0FmK0WyV4YAEC6_HnAnRr1UIn0_3wzWINzF-6vz-HQ4NXGWIyKXJEYh6z3rsh1fdY2yLx_N93FJkzYgi_Tw9gNekLQxOV8E3egg-1Hm0esWyjuzq7-T8hy9UeD_wp-B_Isl6TTEZjuH25d-aAb8dihHiXM_6Zp5NGd0B9DJFTAGslCiIZ_49xiHhrykNrzmxpejwaDHQWDJqEWLvSQOeM0">
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="glass px-6 py-3 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">place</span>
+<span class="font-bold">Open in Google Maps</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="text-center md:text-left">
+<div class="font-headline-md text-headline-md text-on-surface mb-2">GOODLUCK</div>
+<p class="text-on-secondary-container font-label-sm uppercase tracking-widest">© 2024 GOODLUCK Makeup &amp; Mehndi Studio. All Rights Reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="text-on-secondary-container font-label-sm hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container font-label-sm hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="text-on-secondary-container font-label-sm hover:text-primary transition-all" href="#">Contact Us</a>
+<a class="text-on-secondary-container font-label-sm hover:text-primary transition-all" href="#">Artistry Standards</a>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth fade-up observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Parallax effect for hero particles
+        document.addEventListener('mousemove', (e) => {
+            const container = document.getElementById('parallax-container');
+            if (!container) return;
+            const x = (window.innerWidth - e.pageX) / 40;
+            const y = (window.innerHeight - e.pageY) / 40;
+            container.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Sticky nav scroll behavior
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-lg');
+            } else {
+                header.classList.add('shadow-lg');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Duplicate carousel track for seamless infinite scroll loop
+        const track = document.querySelector('.carousel-track');
+        if (track) {
+            track.innerHTML += track.innerHTML;
+        }
+    </script>
+
+</body></html>
